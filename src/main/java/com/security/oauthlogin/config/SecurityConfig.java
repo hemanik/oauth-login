@@ -1,7 +1,8 @@
-package com.security.oauthlogin;
+package com.security.oauthlogin.config;
 
 import java.util.Arrays;
 
+import com.security.oauthlogin.auth.CustomOAuth2ErrorResponseErrorHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,7 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
-        http
+        http.authorizeRequests()
+                .antMatchers("/", "/index.html").authenticated()
+                .anyRequest().authenticated()
+                .and()
                 .oauth2Login()
                 .authorizationEndpoint()
                 .authorizationRequestRepository(authorizationRequestRepository())
