@@ -13,16 +13,11 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.security:spring-security-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.security:spring-security-oauth2-jose'
-
-	implementation 'org.webjars:js-cookie:2.2.1'
-	implementation 'org.webjars:jquery:3.6.1'
-	implementation 'org.webjars:bootstrap:5.2.0'
-
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
